@@ -1,0 +1,45 @@
+{% extends "masterpage.html" %}
+
+{% block header %}
+    <h1>sisdiconpra</h1>
+    <h2>Usuarios cadastrados.</h2>
+{% endblock %}
+
+
+{% block content %}
+    <div class="spinner-overlay" style="display: none;">
+      <div class="spinner"></div>
+    </div>
+
+    <table class="table table-bordered table-hover console-table-review">
+      <thead class="thead-inverse">
+        <tr>
+          <th width="10%">Id</th>
+          <th width="30%">None</th>
+          <th width="30%">Email</th>
+          <th width="30%" style="text-align: center;">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for usuario in usuarios %}
+        <tr data-toggle="collapse" id="{{ usuario.id }}" data-target="#{{ usuario.id }}-details" class="console-row-event console-row-collapsed">
+          <td>{{ usuario.id }}</td>
+          <td>{{ usuario.name }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>
+            <div style="text-align: center;">
+              <button class="btn btn-sm btn-danger console-button-apagar" value="apagar">Apagar</button>
+            </div>
+          </td>
+        </tr>
+        <tr class="console-row-child">
+          <td colspan="5">
+            <div id="{{ usuario.id }}-details" class="collapse"></div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}

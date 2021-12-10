@@ -1,0 +1,49 @@
+{% extends "masterpage.html" %}
+
+{% block content %}
+
+    <div class="spinner-overlay" style="display: none;">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="cabecalho-registros">
+      <h3>Registros por Turma</h3>
+      <p>Selecione uma turma e a data para consulta aos registros ao lado:</p> <!-- vamos manter escolha de turma no protótipo? -->
+      <div class="btn-group dropright">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Turma</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Turma 1</a>
+          <a class="dropdown-item" href="#">Turma 2</a>
+          <a class="dropdown-item" href="#">Turma 3</a>
+        </div>
+      </div>
+      <input id="date" type="date">
+    </div>
+
+    <table id="tabela" class="table table-striped">
+      <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Data/Hora</th>
+            <th scope="col">Nome completo</th>
+            <th scope="col">Foto</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for ocorrencia in ocorrencias %}
+        <tr data-toggle="collapse" id="{{ ocorrencia.id }}" data-target="#{{ ocorrencia.id }}-details" class="console-row-event console-row-collapsed">
+          <td>{{ ocorrencia.id }}</td>
+          <td>{{ ocorrencia.data }}</td>
+          <td>{{ ocorrencia.aluno.nome_completo }}</td> <!-- confirmar se existe esse registro no DB -->
+          <td>
+            <div class="photo_container">
+              <img src="data:;base64,{{ocorrencia.aluno.foto }}" />
+            </div>
+            </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}

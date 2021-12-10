@@ -1,0 +1,130 @@
+/* Globals */
+
+pre {
+  font-size: 1em;
+  padding: 2em;
+  margin: auto;
+  white-space: pre-wrap;
+  border: lightgrey solid 0.1em;
+  border-radius: 1em;
+}
+
+/* Tables */
+
+.table {
+  font-size: 0.8em;
+  margin: auto;
+  table-layout: fixed;
+}
+
+.console-row-event > td {
+  padding: 0.4em;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+
+}
+
+.table th {
+  padding: 0.8em;
+  border: 0em;
+}
+
+.table tr.console-row-expanded, .table tr.console-row-collapsed {
+  cursor: pointer;
+}
+
+.table tr.console-row-collapsed > td {
+  border-bottom-width: 0em;
+}
+
+.table tr.console-row-collapsed:nth-last-child(2) > td {
+  border-bottom-width: 0.1em;  /* Add bottom border to last event row. XXX: border is added twice! */
+}
+
+.table tr.console-row-expanded > td {
+  border-bottom-width: 0.1em;
+}
+
+.table tr.console-row-child > td {
+  border: 0em; padding: 0em;  /* otherwise collapse effect won't look as good */
+  background-color: white;
+}
+
+.table table.console-details-table > tbody > tr > td {
+  background-color: white;
+  border: 0em;
+  vertical-align: top;
+}
+
+/* Buttons */
+
+.table div.console-button-container {
+  text-align: center;
+}
+
+/* Spinner */
+
+.spinner-overlay {
+  background: #666666;
+
+  /* Cover entire window  */
+  position: fixed;
+  z-index: 1;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+
+  /* Grey out page */
+  opacity: 0.5;
+}
+
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 6px solid #3498db;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+
+  /* Show in the middle of the window */
+  position: absolute;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+
+  /* Semi-transparent spinner */
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Modal */
+#dialog-confirm {
+  display: none;
+}
+
+/* JSON Tree */
+div.jsoneditor td.jsoneditor-tree,
+div.jsoneditor td.jsoneditor-separator {
+  vertical-align: middle;
+}
+
+div.jsoneditor td,
+div.jsoneditor-field {
+  font-size: .75rem;
+  border: 0em;
+}
+
+div.photo_container{
+  width: 75px;
+  height:75px;
+  border:solid;
+}
+
+div.photo_container img{
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+}

@@ -1,0 +1,25 @@
+{% extends "masterpage.html" %}
+
+{% block header %}
+    <h1>sisdiconpra</h1>
+    <h2>Novo cadastrados.</h2>
+{% endblock %}
+
+
+{% block content %}
+  <div class="spinner-overlay" style="display: none;">
+    <div class="spinner"></div>
+  </div>
+  <form method="POST" id="novo-usuario">
+    <fieldset>
+      <label>Nome
+        <input type="text" id="txtNome" name="name" placeholder="" required>
+      </label>
+      <br />
+      <label>Email
+        <input type="text" id="txtEmail" name="email" placeholder="" required>
+      </label>
+    </fieldset>
+    <input type="submit" value="Novo usuário" />
+  </form>
+{% endblock %}

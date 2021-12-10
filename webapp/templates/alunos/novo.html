@@ -1,0 +1,22 @@
+{% extends "masterpage.html" %}
+
+{% block header %}
+    <h1>sisdiconpra</h1>
+    <h2>Novo Aluno.</h2>
+{% endblock %}
+
+
+{% block content %}
+  <h3>Novo Aluno</h3>
+  <form method="POST" id="novo-aluno" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="txtNomeCompleto">Nome Completo</label>
+      <input class="form-control" type="text" id="txtNomeCompleto" name="nome_completo" placeholder="" required>
+    </div>
+    <div class="form-group">
+      <label for="txtFoto">Foto</label>
+      <input class="form-control" type="file" id="txtFoto" name="foto" placeholder="" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar Aluno</button>
+  </form>
+{% endblock %}

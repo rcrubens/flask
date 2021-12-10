@@ -1,0 +1,52 @@
+{% extends "masterpage.html" %}
+
+{% block content %}
+
+<div class="cabecalho-registros">
+  <h3>Registros por Aluno</h3>
+  <p>Digite o RA do aluno e selecione um mês para consulta aos registros:</p> <!-- vamos manter essa busca no protótipo? -->
+
+  <div class="input-group">
+    <input type="text" class="form-control" aria-label="Input text com seletor de data">
+    <input id="date" type="month">
+  </div>
+</div>
+
+
+<table id="tabela" class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Foto</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    {% for aluno in alunos %}
+    <tr data-toggle="collapse" id="{{ aluno.id }}" data-target="#{{ aluno.id }}-details"
+      class="console-row-event console-row-collapsed">
+      <td>{{ aluno.id }}</td>
+      <td>{{ aluno.nome_completo }}</td>
+      <td>
+        <div class="photo_container">
+          <img src="data:;base64,{{ aluno.foto }}" />
+        </div>
+      </td>
+      <td> 
+        <div style="text-align: center;">
+          <button class="btn btn-sm btn-danger console-button-apagar-aluno" value="apagar">Apagar</button>
+        </div>
+      </td>
+    </tr>
+    <tr class="console-row-child">
+      <td colspan="5">
+        <div id="{{ aluno.id }}-details" class="collapse"></div> <!-- para que serve essa linha? -->
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
